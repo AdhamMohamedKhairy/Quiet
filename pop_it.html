@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop It Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .popit-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 60px);
+            grid-gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .popit-button {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #4106e4;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .popit-button:hover {
+            background-color: #bbb;
+        }
+
+        .popit-button.popped {
+            background-color: #ff6347;
+            transform: scale(0.9);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            background-color: #0019fa;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .popit-button {
+            background-color: #333;
+            border-color: #555;
+        }
+
+        body.dark-mode .popit-button:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode .popit-button.popped {
+            background-color: #ff6347;
+        }
+
+        body.dark-mode button {
+            background-color: #333;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pop It Game</h1>
+        <div id="popit-grid" class="popit-grid"></div>
+        <button onclick="resetGame()">Reset</button>
+        <button id="toggleDarkMode">🌙</button><button id="home">home</button>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const grid = document.getElementById('popit-grid');
+        const rows = 5;
+        const cols = 5;
+        const audio = new Audio("pop-39222.mp3");
+        let buttons = [];
+    
+        // Create the grid of buttons
+        for (let i = 0; i < rows * cols; i++) {
+            const button = document.createElement('div');
+            button.className = 'popit-button';
+            button.addEventListener('click', () => {
+                button.classList.toggle('popped');
+                audio.play();
+            });
+            grid.appendChild(button);
+            buttons.push(button);
+        }
+    
+        // Function to reset the game
+        window.resetGame = () => {
+            buttons.forEach(button => {
+                button.classList.remove('popped');
+            });
+        };
+
+        // Dark Mode Toggle
+        const toggleDarkModeButton = document.getElementById('toggleDarkMode');
+        toggleDarkModeButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+        const navigateButton = document.getElementById('home');
+            navigateButton.addEventListener('click', () => {
+                window.location.href = 'quiet_html.html'; // The URL of the page to navigate to
+            });
+    });
+    </script>
+</body>
+</html>

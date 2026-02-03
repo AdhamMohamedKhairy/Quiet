@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="radio"], button {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 22px); /* Adjust width to fit container */
+        }
+        button {
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .radio-group {
+            margin-top: 10px;
+        }
+        label {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign In</h1>
+        <form id="signInForm">
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <div class="radio-group">
+                <p>Do you have any chaotic illness?</p>
+                <label>
+                    <input type="radio" name="chaoticIllness" value="yes" required>
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="chaoticIllness" value="no">
+                    No
+                </label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('signInForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const chaoticIllness = document.querySelector('input[name="chaoticIllness"]:checked').value;
+
+            if (chaoticIllness === 'yes') {
+                window.location.href = 'quiet_diabetics.html'; // Redirect to a webpage for chaotic illness
+            } else {
+                window.location.href = 'quiet_html.html'; // Redirect to a different webpage
+            }
+        });
+    </script>
+</body>
+</html>

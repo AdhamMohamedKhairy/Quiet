@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="task manager.css">
+</head>
+<body>
+    <button id="toggleDarkMode">🌙</button><button id="home">home</button>
+    <div class="task-manager">
+        <h1>Task Manager</h1>
+        <button id="openForm">Add New Task</button>
+        
+        <div id="taskForm" class="task-form hidden">
+            <h2>Add a New Task</h2>
+            <input type="text" id="taskInput" placeholder="Enter task description">
+            <input type="number" id="taskHours" placeholder="Hours" min="0" value="0">
+            <input type="number" id="taskMinutes" placeholder="Minutes" min="0" value="0">
+            <input type="number" id="taskSeconds" placeholder="Seconds" min="0" max="59" value="0">
+            <button id="addTask">Add Task</button>
+            <button id="cancelForm">Cancel</button>
+        </div>
+
+        <ul id="taskList"></ul>
+    </div>
+    <audio id="endSound" src="oversimplified-alarm-clock-113180.mp3"></audio>
+    <script src="task manager.js"></script>
+</body>
+</html>

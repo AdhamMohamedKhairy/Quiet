@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode */
+.task-manager {
+    width: 500px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+#toggleDarkMode {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: background-color 0.3s;
+}
+
+#toggleDarkMode:hover {
+    background-color: #0056b3;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .task-manager {
+    background: #1e1e1e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode button {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode button:hover {
+    background-color: #555;
+}
+
+body.dark-mode .task-form input[type="text"],
+body.dark-mode .task-form input[type="number"] {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #e0e0e0;
+}
+
+body.dark-mode ul {
+    color: #e0e0e0;
+}
+
+body.dark-mode li {
+    background: #2c2c2c;
+    border: 1px solid #444;
+}
+
+body.dark-mode li.completed {
+    color: #888;
+}
+
+/* Add more dark mode styles as needed */
+
+h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button.cancel {
+    background-color: #dc3545;
+}
+
+button.cancel:hover {
+    background-color: #c82333;
+}
+
+.task-form {
+    margin-bottom: 20px;
+}
+
+.task-form input[type="text"], 
+.task-form input[type="number"] {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(50% - 12px);
+    display: inline-block;
+}
+
+input[type="number"] {
+    width: calc(25% - 12px);
+}
+
+.task-form button {
+    margin: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+button.delete {
+    background-color: #dc3545;
+}
+
+button.delete:hover {
+    background-color: #c82333;
+}
